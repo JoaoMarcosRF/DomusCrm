@@ -1,4 +1,6 @@
+import Header from "../layouts/Header";
+
 function Home() {
-  return <div>Hello,Word</div>;
+  return <Header />;
 }
 export default Home;
