@@ -15,8 +15,8 @@ public class Image {
 
     private Boolean isPrincipal;
 
-    @ManyToOne()
-    @JoinColumn(name = "property_id")
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "property_id",   nullable = false)
     private Property property;
 
 }
