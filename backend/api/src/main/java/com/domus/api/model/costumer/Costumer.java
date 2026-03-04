@@ -20,7 +20,6 @@ import java.time.LocalDate;
 @Table(name="costumers")
 @NoArgsConstructor
 public class Costumer extends User {
-
     private String cpf;
     private LocalDate registerData;
 
