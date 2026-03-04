@@ -1,5 +1,6 @@
 package com.domus.api.model.lead;
 
+import com.domus.api.model.property.Property;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,4 +23,8 @@ public class Lead {
 
     @Enumerated(EnumType.STRING)
     private LeadStatus leadStatus;
+
+    @ManyToOne()
+    @JoinColumn(name = "property_id")
+    private Property property;
 }

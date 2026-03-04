@@ -1,8 +1,12 @@
 package com.domus.api.model.address;
 
+import com.domus.api.model.property.Property;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -24,5 +28,8 @@ public class Address {
 
     //criar uma classe cep
     private String cep;
+
+    @OneToMany(mappedBy = "property", cascade = CascadeType.ALL)
+    private List<Property> properties = new ArrayList<>();
 
 }

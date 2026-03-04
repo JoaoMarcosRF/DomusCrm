@@ -1,11 +1,16 @@
 package com.domus.api.model.property;
 
+import com.domus.api.model.address.Address;
+import com.domus.api.model.image.Image;
+import com.domus.api.model.lead.Lead;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -30,6 +35,17 @@ public class Property {
     private BigDecimal footage;
 
     private LocalDate registerDate;
+
+    @OneToMany(mappedBy = "property", cascade = CascadeType.ALL)
+    private List<Image> images = new ArrayList<>();
+
+    @ManyToOne
+    @JoinColumn(name = "address_id")
+    private Address address;
+
+    @OneToMany(mappedBy = "property",  cascade = CascadeType.ALL)
+    private List<Lead> leads = new ArrayList<>();
+
 
     @Enumerated(EnumType.STRING)
     private PropertyPorpuse propertyPorpuse;

@@ -16,6 +16,7 @@ public class Image {
     private Boolean isPrincipal;
 
     @ManyToOne
+    @JoinColumn(name = "property_id")
     private Property property;
 
 }
