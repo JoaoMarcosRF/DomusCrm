@@ -24,6 +24,6 @@ public class Broker extends User {
     private Long id;
 
     private String CRECI;
-    private BrokerStatus brokerStatus;
+    private BrokerRole brokerRole;
 
 }
