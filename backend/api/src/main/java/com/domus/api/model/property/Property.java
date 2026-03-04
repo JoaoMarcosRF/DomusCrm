@@ -43,12 +43,12 @@ public class Property {
     @OneToMany(mappedBy = "property",  cascade = CascadeType.ALL)
     private List<Lead> leads = new ArrayList<>();
 
-    @ManyToOne
-    @JoinColumn(name = "address_id")
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "address_id",  nullable = false)
     private Address address;
 
-    @ManyToOne
-    @JoinColumn(name = "broker_id")
+    @ManyToOne(optional = true)
+    @JoinColumn(name = "broker_id",  nullable = true)
     private Broker broker;
 
 

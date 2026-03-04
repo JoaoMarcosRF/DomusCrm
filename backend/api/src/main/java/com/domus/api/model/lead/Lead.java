@@ -1,5 +1,7 @@
 package com.domus.api.model.lead;
 
+import com.domus.api.model.broker.Broker;
+import com.domus.api.model.costumer.Costumer;
 import com.domus.api.model.property.Property;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -24,7 +26,16 @@ public class Lead {
     @Enumerated(EnumType.STRING)
     private LeadStatus leadStatus;
 
-    @ManyToOne()
-    @JoinColumn(name = "property_id")
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "property_id",  nullable = false)
     private Property property;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "broker_id", nullable = false)
+    private Broker broker;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "costumer_id",  nullable = false)
+    private Costumer costumer;
+
 }

@@ -38,4 +38,6 @@ public class Broker extends User {
     @Enumerated(EnumType.STRING)
     private BrokerRole brokerRole;
 
+
+
 }
