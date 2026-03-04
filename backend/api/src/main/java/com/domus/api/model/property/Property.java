@@ -24,7 +24,7 @@ public class Property {
     private Long id;
 
     private String description;
-    private String type;
+    private PropertyType type;
     private String tittle;
     private String status;
     private String bedroomQnt;
