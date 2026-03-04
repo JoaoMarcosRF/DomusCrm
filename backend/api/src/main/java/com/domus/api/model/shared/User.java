@@ -6,8 +6,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-
 @MappedSuperclass
+
+
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class User {
 
