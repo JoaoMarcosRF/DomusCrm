@@ -1,3 +1,4 @@
+import AboutSection from "../layouts/AboutSection";
 import Header from "../layouts/Header";
 import HeroSection from "../layouts/HeroSection";
 import PropertiesSection from "../layouts/PropertiesSection";
@@ -8,6 +9,7 @@ function Home() {
       <Header />
       <HeroSection />
       <PropertiesSection />
+      <AboutSection />
     </>
   );
 }
