@@ -43,9 +43,10 @@ public class Property {
     @OneToMany(mappedBy = "property",  cascade = CascadeType.ALL)
     private List<Lead> leads = new ArrayList<>();
 
-
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "address_id",  nullable = false)
+    //false
+    @ManyToOne(optional = true)
+    //false
+    @JoinColumn(name = "address_id",  nullable = true)
     private Address address;
 
     @ManyToOne(optional = true)

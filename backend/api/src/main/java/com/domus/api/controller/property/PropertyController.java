@@ -1,7 +1,7 @@
-package com.domus.api.controller;
+package com.domus.api.controller.property;
 
 import com.domus.api.model.property.Property;
-import com.domus.api.service.PropertyService;
+import com.domus.api.service.property.PropertyService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,15 +17,15 @@ public class PropertyController {
         this.service = service;
     }
 
-    @PostMapping
-    public ResponseEntity<?> createProperty(@RequestBody Property property) {
-        service.createProperty(property);
-        return ResponseEntity.ok("Successfully create!");
-    }
-
     @GetMapping()
     public String getHome(){
         return "ONLINE";
+    }
+
+    @PostMapping()
+    public ResponseEntity<?> addProperty(@RequestBody Property property) {
+        service.save(property);
+        return ResponseEntity.ok().body(property);
     }
 
     @GetMapping("/all")
