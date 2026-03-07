@@ -9,24 +9,54 @@ function Header() {
             <span className="text-4xl text-[#003366]">
               <MdDomain />
             </span>
-            <span className="text-xl font-black tracking-tighter text-[#003366] uppercase">Domus</span>
+            <span className="text-xl font-black tracking-tighter text-[#003366] uppercase">
+              Domus
+            </span>
           </div>
+
           <nav className="hidden md:flex items-center gap-8">
-            <a href="#" className="text-sm font-semibold text-[#0F172A] hover:text-[#003366] transition-colors">
-                Home
+            <a
+              href="#home"
+              className="relative text-sm font-semibold text-[#0F172A] transition-colors duration-300 hover:text-[#003366]
+              after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0
+              after:bg-[#003366] after:transition-all after:duration-300
+              hover:after:w-full"
+            >
+              Home
             </a>
-            <a href="#" className="text-sm font-semibold text-[#0F172A] hover:text-[#003366] transition-colors">
-                Comprar
+
+            <a
+              href="#properties"
+              className="relative text-sm font-semibold text-[#0F172A] transition-colors duration-300 hover:text-[#003366]
+              after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0
+              after:bg-[#003366] after:transition-all after:duration-300
+              hover:after:w-full"
+            >
+              Comprar
             </a>
-            <a href="#" className="text-sm font-semibold text-[#0F172A] hover:text-[#003366] transition-colors">
-                Alugar
+
+            <a
+              href="#properties"
+              className="relative text-sm font-semibold text-[#0F172A] transition-colors duration-300 hover:text-[#003366]
+              after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0
+              after:bg-[#003366] after:transition-all after:duration-300
+              hover:after:w-full"
+            >
+              Alugar
             </a>
-            <a href="#" className="text-sm font-semibold text-[#0F172A] hover:text-[#003366] transition-colors">
-                Sobre nós
+
+            <a
+              href="#about"
+              className="relative text-sm font-semibold text-[#0F172A] transition-colors duration-300 hover:text-[#003366]
+              after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0
+              after:bg-[#003366] after:transition-all after:duration-300
+              hover:after:w-full"
+            >
+              Sobre nós
             </a>
           </nav>
 
-          <button className="bg-[#003366] hover:bg-[#0F172A] text-white px-6 py-2.5 rounded-lg text-sm font-bold transition-all">
+          <button className="bg-[#003366] hover:bg-[#0F172A] text-white px-6 py-2.5 rounded-lg text-sm font-bold transition-all duration-300 hover:scale-105">
             Fale conosco
           </button>
         </div>

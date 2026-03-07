@@ -5,7 +5,7 @@ import { PiMedalMilitary } from "react-icons/pi";
 
 function AboutSection() {
   return (
-    <section className="bg-[#003366] py-24 text-white">
+    <section className="bg-[#003366] py-24 text-white" id="about">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8">

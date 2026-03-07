@@ -2,7 +2,7 @@ import { MdDomain } from "react-icons/md";
 
 function HeroSection() {
   return (
-    <section className="relative h-[80vh] min-h-150 w-full flex items-center justify-center overflow-hidden">
+    <section className="relative h-[80vh] min-h-150 w-full flex items-center justify-center overflow-hidden" id="home"> 
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
