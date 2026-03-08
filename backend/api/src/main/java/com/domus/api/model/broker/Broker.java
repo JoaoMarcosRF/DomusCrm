@@ -4,6 +4,8 @@ import com.domus.api.model.lead.Lead;
 import com.domus.api.model.property.Property;
 import com.domus.api.model.property.PropertyPorpuse;
 import com.domus.api.model.shared.User;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,6 +29,7 @@ public class Broker extends User {
     private String password;
 
     @OneToMany(mappedBy = "broker", cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Property> properties = new ArrayList<>();
 
     @OneToMany(mappedBy = "broker", cascade = CascadeType.ALL)
@@ -34,7 +37,4 @@ public class Broker extends User {
 
     @Enumerated(EnumType.STRING)
     private BrokerRole brokerRole;
-
-
-
 }

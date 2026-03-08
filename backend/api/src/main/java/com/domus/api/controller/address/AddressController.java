@@ -1,11 +1,13 @@
 package com.domus.api.controller.address;
 
 import com.domus.api.model.address.Address;
+import com.domus.api.model.property.Property;
 import com.domus.api.service.address.AddressService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/address")
@@ -23,14 +25,21 @@ public class AddressController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Address> findById(@PathVariable long id){
-        Address address =  service.findById(id);
+    public ResponseEntity<Optional<?>> findById(@PathVariable long id){
+        Optional<Address> address =  service.findById(id);
         return ResponseEntity.ok().body(address);
     }
 
-    @GetMapping("/all")
+    @GetMapping()
     public ResponseEntity<List<Address>> findAll(){
         return ResponseEntity.ok().body(service.findAll());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Optional<Address>> deleteById(@PathVariable Long id){
+        Optional<Address>address = service.findById(id);
+        service.deleteById(id);
+        return ResponseEntity.ok().body(address);
     }
 
 

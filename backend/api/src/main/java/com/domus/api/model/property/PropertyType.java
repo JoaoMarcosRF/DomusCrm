@@ -4,6 +4,4 @@ public enum PropertyType {
     HOUSE,
     COMMERCIAL_ROOM,
     LOT
-
-
 }

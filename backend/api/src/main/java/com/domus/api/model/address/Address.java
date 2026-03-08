@@ -1,6 +1,8 @@
 package com.domus.api.model.address;
 
 import com.domus.api.model.property.Property;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -29,7 +31,8 @@ public class Address {
     //criar uma classe cep
     private String cep;
 
-    @OneToMany(mappedBy = "address", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "address")
+    @JsonIgnore
     private List<Property> property = new ArrayList<>();
 
 }

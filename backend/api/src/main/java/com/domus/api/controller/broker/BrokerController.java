@@ -1,6 +1,7 @@
 package com.domus.api.controller.broker;
 
 import com.domus.api.model.broker.Broker;
+import com.domus.api.model.property.Property;
 import com.domus.api.service.broker.BrokerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,13 +26,20 @@ public class BrokerController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Optional<?>> findById(@PathVariable Long id){
-        Optional<?> broker = service.findById(id);
+        Optional<Broker> broker = service.findById(id);
         return ResponseEntity.ok().body(broker);
     }
 
-    @GetMapping("/all")
-    public List<?> findAll(){
+    @GetMapping()
+    public List<Broker> findAll(){
         return service.findAll();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Optional<Broker>> deleteById(@PathVariable Long id){
+        Optional<Broker> broker = service.findById(id);
+        service.deleteById(id);
+        return ResponseEntity.ok().body(broker);
     }
 
 }

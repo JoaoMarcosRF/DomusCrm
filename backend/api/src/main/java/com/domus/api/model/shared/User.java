@@ -12,9 +12,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-@Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "users")
+@MappedSuperclass
 public abstract class User {
 
     @Id

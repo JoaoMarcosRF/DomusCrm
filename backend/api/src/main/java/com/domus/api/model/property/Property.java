@@ -4,6 +4,8 @@ import com.domus.api.model.address.Address;
 import com.domus.api.model.broker.Broker;
 import com.domus.api.model.image.Image;
 import com.domus.api.model.lead.Lead;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +19,7 @@ import java.util.List;
 @Setter
 
 @Entity
-@Table(name = "owners")
+@Table(name = "properties")
 public class Property {
 
     @Id
@@ -25,9 +27,17 @@ public class Property {
     private Long id;
 
     private String description;
+
+    @Enumerated(EnumType.STRING)
     private PropertyType type;
+
+    @Enumerated(EnumType.STRING)
+    private PropertyStatus status;
+
+    @Enumerated(EnumType.STRING)
+    private PropertyPorpuse porpuse;
+
     private String tittle;
-    private String status;
     private String bedroomQnt;
     private String bathRoomQnt;
     private String parkingSpaces;
@@ -43,19 +53,16 @@ public class Property {
     @OneToMany(mappedBy = "property",  cascade = CascadeType.ALL)
     private List<Lead> leads = new ArrayList<>();
 
-    //false
-    @ManyToOne(optional = true)
-    //false
-    @JoinColumn(name = "address_id",  nullable = true)
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "address_id",  nullable = false)
     private Address address;
 
     @ManyToOne(optional = true)
     @JoinColumn(name = "broker_id",  nullable = true)
+
     private Broker broker;
 
 
 
-    @Enumerated(EnumType.STRING)
-    private PropertyPorpuse propertyPorpuse;
 
 }

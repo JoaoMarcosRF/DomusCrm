@@ -1,9 +1,15 @@
 package com.domus.api.model.image;
 
 import com.domus.api.model.property.Property;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
+@Table(name="images")
 public class Image {
 
     @Id
@@ -11,12 +17,13 @@ public class Image {
     private Long id;
 
     private String url;
-    private int order;
+    private int displayOrder;
 
     private Boolean isPrincipal;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "property_id",   nullable = false)
+    @JsonIgnore
     private Property property;
 
 }

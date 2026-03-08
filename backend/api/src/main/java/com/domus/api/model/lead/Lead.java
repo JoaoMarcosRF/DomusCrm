@@ -28,6 +28,7 @@ public class Lead {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "property_id",  nullable = false)
+
     private Property property;
 
     @ManyToOne(optional = false)

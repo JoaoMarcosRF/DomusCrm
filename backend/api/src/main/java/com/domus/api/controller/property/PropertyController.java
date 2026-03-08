@@ -1,5 +1,6 @@
 package com.domus.api.controller.property;
 
+import com.domus.api.model.image.Image;
 import com.domus.api.model.property.Property;
 import com.domus.api.service.property.PropertyService;
 import org.springframework.http.ResponseEntity;
@@ -17,24 +18,26 @@ public class PropertyController {
         this.service = service;
     }
 
-    @GetMapping()
-    public String getHome(){
-        return "ONLINE";
-    }
-
     @PostMapping()
     public ResponseEntity<?> addProperty(@RequestBody Property property) {
         service.save(property);
         return ResponseEntity.ok().body(property);
     }
 
-    @GetMapping("/all")
-    public List<Property> findAll() {
+    @GetMapping()
+    public List<?> findAll() {
         return service.findAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<Property> findById(@PathVariable Long id) {
+    public Optional<?> findById(@PathVariable Long id) {
         return service.findById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Optional<Property>> deleteById(@PathVariable Long id){
+        Optional<Property> property = service.findById(id);
+        service.deleteById(id);
+        return ResponseEntity.ok().body(property);
     }
 }

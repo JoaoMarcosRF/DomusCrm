@@ -18,10 +18,9 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @SuperBuilder
-
+@NoArgsConstructor
 @Entity
 @Table(name="costumers")
-@NoArgsConstructor
 public class Costumer extends User {
     private String cpf;
     private LocalDate registerData;

@@ -1,7 +1,9 @@
-package com.domus.api.service.address;
+package com.domus.api.service.lead;
 
-import com.domus.api.model.address.Address;
-import com.domus.api.repository.address.AddressRepository;
+import com.domus.api.model.image.Image;
+import com.domus.api.model.lead.Lead;
+import com.domus.api.repository.image.ImageRepository;
+import com.domus.api.repository.lead.LeadRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
@@ -12,35 +14,34 @@ import java.util.Optional;
 
 @Service
 @Transactional
-public class AddressService {
+public class LeadService {
     @PersistenceContext
     private EntityManager entityManager;
 
-    private final AddressRepository repository;
+    private final LeadRepository repository;
 
-    public AddressService(AddressRepository repository){
-        this.repository = repository;
-    }
+    public LeadService(LeadRepository repository){this.repository = repository;}
 
-    public <S extends Address> S save(S entity){
-        if(entity.getId() == null) {
+    public <S extends Lead> S save(S entity){
+        if(entity.getId() == null){
             entityManager.persist(entity);
         }
-        else {
+        else{
             entity = entityManager.merge(entity);
         }
+
         return entity;
     }
-    public Optional<Address> findById(Long id){
+
+    public Optional<Lead> findById(Long id){
         return repository.findById(id);
     }
 
-    public List<Address> findAll(){
+    public List<Lead> findAll(){
         return repository.findAll();
     }
 
     public void deleteById(Long id){
         repository.deleteById(id);
     }
-
 }
