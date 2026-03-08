@@ -1,7 +1,7 @@
 export interface Property {
     id: number
     description : string
-    type: "CASA" | "TERRENO" |"APARTAMENTO"
+    type: "CASA" | "TERRENO" |"COMERCIAL"
     finalidad: string
     price : number
     title : string

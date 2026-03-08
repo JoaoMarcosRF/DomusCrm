@@ -5,7 +5,7 @@ import { MdCamera } from "react-icons/md";
 export function Footer() {
   const anoAtual = new Date().getFullYear();
   return (
-    <footer className="bg-slate-900 text-slate-400 py-16">
+    <footer className="bg-slate-900 text-slate-400 py-16" id="contat">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div className="space-y-6">
@@ -105,7 +105,7 @@ export function Footer() {
                 <span className="material-symbols-outlined text-primary">
                   <MdOutlineMail />
                 </span>
-                <span>contato@domus.com.br</span>
+                <span><a href="mailto:contato@domus.com.br">contato@domus.com.br</a></span>
               </li>
             </ul>
           </div>
