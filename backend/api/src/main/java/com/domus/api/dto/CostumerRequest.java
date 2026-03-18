@@ -11,11 +11,12 @@ public record CostumerRequest(
 ) {}
 
 /*
+
+PADRÃO DO JSON
 {
-  "name": "João Silva",
-  "email": "joao.silva@example.com",
-  "phoneNumber": "+55 81 99999-8888",
-  "cpf": "123.456.789-10",
-  "leadIds": [1, 3, 5]
+  "name": "Maria Souza",
+  "email": "maria@email.com",
+  "phoneNumber": "81988888888",
+  "cpf": "12345678900"
 }
  */

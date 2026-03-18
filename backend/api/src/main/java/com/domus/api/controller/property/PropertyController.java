@@ -41,4 +41,13 @@ public class PropertyController {
         service.deleteById(id);
         return ResponseEntity.ok().body(property);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<PropertyRequest> updateProperty(
+            @PathVariable Long id,
+            @RequestBody PropertyRequest request
+    ) {
+        service.update(id, request);
+        return ResponseEntity.ok().body(request);
+    }
 }

@@ -52,6 +52,10 @@ public class ImageService {
     }
 
     public void deleteById(Long id){
+
+        if(!(repository.existsById(id))){
+            throw new RuntimeException("Image don't exist.");
+        }
         repository.deleteById(id);
     }
 }

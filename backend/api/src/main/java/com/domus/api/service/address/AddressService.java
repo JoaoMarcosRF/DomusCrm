@@ -21,15 +21,12 @@ public class AddressService {
     private EntityManager entityManager;
 
     private final AddressRepository repository;
-    private final PropertyRepository propertyRepository;
 
-    public AddressService(AddressRepository repository, PropertyRepository propertyRepository){
-        this.propertyRepository = propertyRepository;
+    public AddressService(AddressRepository repository){
         this.repository = repository;
     }
 
     public Address save(AddressRequest request){
-
 
 
         Address address = new Address();
@@ -40,11 +37,6 @@ public class AddressService {
         address.setCity(request.city());
         address.setState(request.state());
         address.setCep(request.cep());
-
-        if(request.propertyId() != null){
-            Property properties = propertyRepository.findById(request.propertyId()).orElseThrow();
-            address.setProperty(properties);
-        }
 
         return repository.save(address);
     }

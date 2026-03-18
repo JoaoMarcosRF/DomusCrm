@@ -14,3 +14,18 @@ public record BrokerRequest(
     List<Long> leadsIds,
     BrokerRole brokerRole
 ) {}
+
+/*
+
+PADRÃO DO JSON
+
+{
+  "name": "João Silva",
+  "email": "joao@imobiliaria.com",
+  "phoneNumber": "81999999999",
+  "CRECI": "12445-PE",
+  "password": "123456",
+  "brokerRole": "ADMIN"
+}
+
+ */

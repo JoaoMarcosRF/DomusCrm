@@ -35,9 +35,9 @@ public class Property {
     private PropertyStatus status;
 
     @Enumerated(EnumType.STRING)
-    private PropertyPorpuse porpuse;
+    private PropertyPorpuse purpose;
 
-    private String tittle;
+    private String title;
     private String bedroomQnt;
     private String bathRoomQnt;
     private String parkingSpaces;
@@ -56,7 +56,7 @@ public class Property {
     private List<Lead> leads = new ArrayList<>();
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id", nullable = true)
+    @JoinColumn(name = "address_id")
     private Address address;
 
     @ManyToOne(optional = true)

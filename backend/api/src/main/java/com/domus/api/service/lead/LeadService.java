@@ -66,6 +66,11 @@ public class LeadService {
     }
 
     public void deleteById(Long id){
+
+        if(!(repository.existsById(id))){
+            throw new RuntimeException("Lead don't exist.");
+        }
+
         repository.deleteById(id);
     }
 }

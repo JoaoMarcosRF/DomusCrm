@@ -57,6 +57,10 @@ public class CostumerService {
     }
 
     public void deleteById(Long id){
+
+        if(!(repository.existsById(id))){
+            throw new RuntimeException("Costumer don't exist.");
+        }
         repository.deleteById(id);
     }
 }

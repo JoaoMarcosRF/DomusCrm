@@ -62,6 +62,15 @@ public class BrokerService {
     }
 
     public void deleteById(Long id) {
+
+        if(propertyRepository.existsById(id)){
+            throw new RuntimeException("The broker owns properties linked to the property.");
+        }
+
+        if(!(repository.existsById(id))){
+            throw new RuntimeException("The broker don't exist.");
+        }
+
         repository.deleteById(id);
     }
 

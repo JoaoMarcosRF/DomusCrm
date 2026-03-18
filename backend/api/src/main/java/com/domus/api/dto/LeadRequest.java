@@ -12,11 +12,14 @@ public record LeadRequest (
 
 
 /*
+
+PADRÃO JSON
+
 {
   "message": "Tenho interesse neste imóvel. Poderia enviar mais informações?",
   "leadStatus": "QUALIFIED",
   "propertyId": 1,
-  "brokerId": 2,
+  "brokerId": 1,
   "costumerId": 1
 }
  */

@@ -14,8 +14,7 @@ public record AddressRequest(
     String neighborhood,
     String city,
     String state,
-    String cep,
-    Long propertyId
+    String cep
 ) {}
 
 
@@ -24,8 +23,8 @@ public record AddressRequest(
         "street": "Rua A",
         "city": "Recife",
         "state": "PE",
-        "cep": "50000-000",
-        "propertyIds": [1, 2, 3]
+        "cep": "50000-000"
+
 }
 */
 

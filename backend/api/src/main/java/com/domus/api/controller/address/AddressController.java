@@ -19,12 +19,6 @@ public class AddressController {
         this.service = service;
     }
 
-    @PostMapping()
-    public ResponseEntity<AddressRequest> addAddress(@RequestBody AddressRequest request){
-        service.save(request);
-        return ResponseEntity.ok().body(request);
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<Optional<?>> findById(@PathVariable long id){
         Optional<Address> address =  service.findById(id);

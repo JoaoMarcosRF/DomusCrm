@@ -9,10 +9,13 @@ public record ImageRequest(
 
 
 /*
+
+PADRÃO JSON
+
 {
-  "url": "https://www.infoescola.com/wp-content/uploads/2008/07/tatu_571012585.jpg",
-  "displayOrder": 1,
-  "isPrincipal": true,
-  "propertyId": 5
+  "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLWfsn6CKhmmhaUOLCbKLCndklHShvY72fTg&s",
+  "displayOrder": 2,
+  "isPrincipal": false,
+  "propertyId": 1
 }
  */
