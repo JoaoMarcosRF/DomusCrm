@@ -43,6 +43,8 @@ public class LeadController {
         return ResponseEntity.ok().body(lead);
     }
 
+    /*
+
     @PutMapping("/{id}")
     public ResponseEntity<LeadRequest> updateLead(
           @PathVariable Long id,
@@ -51,5 +53,6 @@ public class LeadController {
         service.update(id, request);
         return ResponseEntity.ok().body(request);
     }
+     */
 
 }

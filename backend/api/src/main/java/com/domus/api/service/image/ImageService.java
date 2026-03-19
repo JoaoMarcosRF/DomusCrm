@@ -5,6 +5,7 @@ import com.domus.api.model.image.Image;
 import com.domus.api.model.property.Property;
 import com.domus.api.repository.image.ImageRepository;
 import com.domus.api.repository.property.PropertyRepository;
+import com.domus.api.service.property.PropertyService;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
@@ -36,9 +37,15 @@ public class ImageService {
         image.setDisplayOrder(request.displayOrder());
 
         if(request.propertyId() != null){
-            Property property = propertyRepository.findById(request.propertyId()).orElseThrow();
+            Property property = propertyRepository.findById(request.propertyId())
+                    .orElseThrow(() ->  new RuntimeException("property not found."));
+
+            property.addImage(image);
+
             image.setProperty(property);
         }
+
+
 
         return repository.save(image);
     }

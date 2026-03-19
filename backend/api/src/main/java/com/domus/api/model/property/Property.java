@@ -48,7 +48,6 @@ public class Property {
     private LocalDate registerDate;
 
     @OneToMany(mappedBy = "property", cascade = CascadeType.ALL)
-    @JsonIgnore
     private List<Image> images = new ArrayList<>();
 
     @OneToMany(mappedBy = "property",  cascade = CascadeType.ALL)
@@ -62,4 +61,15 @@ public class Property {
     @ManyToOne(optional = true)
     @JoinColumn(name = "broker_id",  nullable = true)
     private Broker broker;
+
+
+    public void addImage(Image image) {
+        if (image == null) {
+            this.images = new ArrayList<>();
+        }
+        this.images.add(image);
+    }
+
+    public void removeImage(Image image) {}
 }
+
