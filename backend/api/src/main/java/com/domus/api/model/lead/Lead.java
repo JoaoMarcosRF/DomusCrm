@@ -1,26 +1,26 @@
 package com.domus.api.model.lead;
 
 import com.domus.api.model.broker.Broker;
-import com.domus.api.model.costumer.Costumer;
 import com.domus.api.model.property.Property;
+import com.domus.api.model.shared.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
 
 @Getter
 @Setter
-
+@AllArgsConstructor
+@SuperBuilder
+@NoArgsConstructor
 @Entity
 @Table(name = "leads")
-public class Lead {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class Lead extends User {
     private LocalDate interestDate;
     private String message;
 
@@ -35,9 +35,4 @@ public class Lead {
     @JoinColumn(name = "broker_id", nullable = false)
     @JsonIgnore
     private Broker broker;
-
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "costumer_id",  nullable = false)
-    private Costumer costumer;
-
 }

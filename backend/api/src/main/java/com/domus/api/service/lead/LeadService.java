@@ -5,7 +5,6 @@ import com.domus.api.model.image.Image;
 import com.domus.api.model.lead.Lead;
 import com.domus.api.model.property.Property;
 import com.domus.api.repository.broker.BrokerRepository;
-import com.domus.api.repository.costumer.CostumerRepository;
 import com.domus.api.repository.image.ImageRepository;
 import com.domus.api.repository.lead.LeadRepository;
 import com.domus.api.repository.property.PropertyRepository;
@@ -27,17 +26,21 @@ public class LeadService {
     private final LeadRepository repository;
     private final BrokerRepository brokerRepository;
     private final PropertyRepository propertyRepository;
-    private final CostumerRepository costumerRepository;
 
-    public LeadService(LeadRepository repository, BrokerRepository brokerRepository, PropertyRepository propertyRepository, CostumerRepository costumerRepository){this.repository = repository;
+    public LeadService(LeadRepository repository, BrokerRepository brokerRepository, PropertyRepository propertyRepository){
+        this.repository = repository;
         this.brokerRepository = brokerRepository;
         this.propertyRepository = propertyRepository;
-        this.costumerRepository = costumerRepository;
+
     }
 
     public Lead save(LeadRequest request){
 
         Lead lead = new Lead();
+
+        lead.setName(request.name());
+        lead.setEmail(request.email());
+        lead.setPhoneNumber(request.phoneNumber());
         lead.setInterestDate(LocalDate.now());
         lead.setMessage(request.message());
         lead.setLeadStatus(request.leadStatus());
@@ -50,9 +53,6 @@ public class LeadService {
                 request.propertyId()).orElseThrow(() -> new RuntimeException("Property not found."))
         );
 
-        lead.setCostumer(costumerRepository.findById(
-                request.costumerId()).orElseThrow(() -> new RuntimeException("Costumer not found."))
-        );
 
         return repository.save(lead);
     }
