@@ -26,20 +26,20 @@ public class BrokerService {
     private final BrokerRepository repository;
     private final PropertyRepository propertyRepository;
     private final LeadRepository leadRepository;
-    private final PasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordService;
 
-    public BrokerService(BrokerRepository repository, PropertyRepository propertyRepository, LeadRepository leadRepository, PasswordEncoder passwordEncoder) {
+    public BrokerService(BrokerRepository repository, PropertyRepository propertyRepository, LeadRepository leadRepository, PasswordEncoder passwordService) {
         this.repository = repository;
         this.propertyRepository = propertyRepository;
         this.leadRepository = leadRepository;
-        this.passwordEncoder = passwordEncoder;
+        this.passwordService = passwordService;
     }
 
     public Broker save(BrokerRequest request) {
 
         Broker broker = new Broker();
 
-        String hashedPassword = passwordEncoder.encode(request.password());
+        String hashedPassword = passwordService.encode(request.password());
 
         broker.setName(request.name());
         broker.setEmail(request.email());
@@ -88,7 +88,7 @@ public class BrokerService {
         Broker broker = repository.findById(id)
                 .orElseThrow(() ->  new RuntimeException("Property dont exists."));
 
-        String hashedPassword = passwordEncoder.encode(request.password());
+        String hashedPassword = passwordService.encode(request.password());
 
         broker.setName(request.name());
         broker.setEmail(request.email());

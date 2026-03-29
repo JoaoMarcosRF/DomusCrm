@@ -12,6 +12,10 @@ public class PasswordService {
         this.encoder = encoder;
     }
 
+    public String encode(String password){
+        return encoder.encode(password);
+    }
+
     public boolean validate(String password, String hashedPassword){
         if(!(encoder.matches(password, hashedPassword))){
             throw new RuntimeException("Invalid password!");
